@@ -1,0 +1,12 @@
+<mdb-card
+  class="card-image mb-3 image"
+  [style.background-image]="'url(' + background + ')'"
+>
+  <div class="text-white text-center d-flex align-items-center py-5 px-4">
+    <div class="title-container">
+      <h3 class="card-title pink-text" (click)="emit()">
+        <strong>{{ category.name | uppercase }}</strong>
+      </h3>
+    </div>
+  </div>
+</mdb-card>

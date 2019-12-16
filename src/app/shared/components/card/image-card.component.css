@@ -1,0 +1,35 @@
+strong {
+  color: #ffffff;
+  transition: color 0.5s;
+}
+
+.image {
+  background-size: cover;
+  padding-top: 20rem;
+  padding-bottom: 3rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  margin: 0;
+}
+
+.card-title {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid #ffffff;
+  padding: 10px;
+  font-size: 1.1em;
+  transition: background-color 0.5s;
+}
+
+.title-container {
+  min-width: 15rem;
+  max-width: 15rem;
+}
+
+.card-title:hover {
+  cursor: pointer;
+  background-color: #ffdfdf;
+}
+
+.card-title:hover > strong {
+  color: #000000;
+}

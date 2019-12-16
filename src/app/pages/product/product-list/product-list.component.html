@@ -1,0 +1,31 @@
+<ng-template #noProducts>
+  This category has no products :-(
+</ng-template>
+
+<card-loader *ngIf="loading$ | async" [loop]="3" [height]="800"></card-loader>
+<div *ngIf="products$ | async as products; else noProducts">
+  <div class="card-deck">
+    <div
+      *ngFor="
+        let product of products
+          | paginate: { itemsPerPage: pageSize, currentPage: page }
+      "
+    ></div>
+    <div class="card-deck">
+      <div
+        *ngFor="
+          let product of products
+            | paginate: { itemsPerPage: pageSize, currentPage: page }
+        "
+      >
+        <product-card
+          [product]="product"
+          (clickEvent)="navigateToProductDetail($event)"
+        ></product-card>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-3">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>

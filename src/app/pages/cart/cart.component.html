@@ -1,0 +1,78 @@
+<ng-template #noProducts>
+  There're no products :'(
+</ng-template>
+
+<div class="container">
+  <div class="row" *ngIf="cartProducts.length !== 0; else noProducts">
+    <div class="col-8">
+      <div class="row">
+        <div class="col-4" *ngFor="let product of cartProducts">
+          <div class="item">
+            <div class=" mb-r">
+              <a [routerLink]="['/catalog/product', product.id]">
+                <div class="view overlay hm-white-slight">
+                  <img
+                    [src]="product.image"
+                    class="img-fluid"
+                    alt=""
+                    width="640px"
+                    height="640px"
+                  />
+                  <a>
+                    <div
+                      class="mask waves-effect waves-light"
+                      mdbRippleRadius
+                    ></div>
+                  </a>
+                </div>
+              </a>
+              <div class="product-element">
+                <a class="text-muted">
+                  <h5>{{ product.category }}</h5>
+                </a>
+                <h5 class="card-title">
+                  <strong>
+                    <a [routerLink]="['/catalog/product', product.id]">{{
+                      product.title
+                    }}</a>
+                  </strong>
+                </h5>
+
+                <p class="card-text">{{ product.description }}</p>
+
+                <span class="left">{{ product.price }}€</span>
+                <span class="right">
+                  <a
+                    placement="top"
+                    mdbTooltip="Quick Look"
+                    container="body"
+                    [routerLink]="['/catalog/product', product.id]"
+                  >
+                    <i class="fa fa-eye"></i>
+                  </a>
+                  <a
+                    placement="top"
+                    mdbTooltip="Remove Product"
+                    container="body"
+                    (click)="removeCartProduct(product)"
+                  >
+                    <i class="fa fa-trash"></i>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <cart-invoice [products]="cartProducts"></cart-invoice>
+    </div>
+  </div>
+</div>
+<!-- <div class="container" *ngIf="cartProducts.length === 0">
+  <app-no-products-found
+    [title]="messageTitle"
+    [description]="messageDescription"
+  ></app-no-products-found>
+</div> -->

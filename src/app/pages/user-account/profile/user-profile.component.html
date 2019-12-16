@@ -1,0 +1,28 @@
+<form *ngIf="profile$ | async as profile">
+  <div class="container">
+    <!-- <img
+      [src]="profile.avatar"
+      *ngIf="profile.avatar"
+      [alt]="profile.username"
+      style="width: 35%; height: 35%;"
+    />
+    <img
+      src="../../../assets/img/malecostume-512.png"
+      *ngIf="!profile.avatar"
+      [alt]="profile.username"
+      style="width: 35%; height: 35%;"
+    /> -->
+    <div class="col-md-8 mt-3">
+      <label>
+        <strong>User Name:</strong>
+        {{ profile.username }}
+      </label>
+    </div>
+    <div class="col-md-8 mb-3">
+      <label>
+        <strong>Email:</strong>
+        {{ profile.username || "No email" }}
+      </label>
+    </div>
+  </div>
+</form>

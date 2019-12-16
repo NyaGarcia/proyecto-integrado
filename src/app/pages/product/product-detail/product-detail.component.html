@@ -1,0 +1,66 @@
+<div class="container" style="margin-top: 2rem;" *ngIf="product$ | async as product">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="product-image">
+        <div class="view hm-zoom z-depth-2" style="cursor: pointer">
+          <img
+            [src]="product.image"
+            [alt]="product.title"
+            width="100%"
+            class="img-fluid rounded"
+          />
+        </div>
+        <div class="" style="margin-top:15px">
+          <ul class="list-group mb-3">
+            <li
+              class="list-group-item d-flex justify-content-between lh-condensed"
+            >
+              <div>
+                <h6 class="my-0">Price</h6>
+              </div>
+              <span class="text-muted highlight">{{ product.price }}€</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="product-detail">
+        <h5 class="product-head">Product Details</h5>
+        <table class="table" cellspacing="0" style="max-height: 28px">
+          <tbody>
+            <tr>
+              <th scope="row">Name</th>
+              <td>{{ product.title }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Description</th>
+              <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Category</th>
+              <td>{{ product.category }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Available in Stock</th>
+              <td>{{ product.stock }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Added on</th>
+              <td>{{ product.createdAt }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div fxLayout="row" fxLayoutAlign="center">
+          <button
+            class="btn btn-primary"
+            [disabled]="disabled$ | async"
+            (click)="addToCart(product)"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

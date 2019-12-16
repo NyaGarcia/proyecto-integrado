@@ -1,0 +1,140 @@
+<mat-card>
+  <mat-card-content>
+    <div class="text-center pb-1">
+      <img src="assets/images/logo-full.png" alt="" class="mb-05" />
+      <h4 class="text-muted m-0">Sign up to begin shopping</h4>
+    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+      <div class="d-flex justify-content-center">
+        <div class="form">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="text"
+              name="name"
+              formControlName="name"
+              placeholder="name"
+              value=""
+            />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="text"
+              name="surname"
+              formControlName="surname"
+              placeholder="surname"
+              value=""
+            />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="text"
+              name="username"
+              formControlName="username"
+              placeholder="username"
+              value=""
+            />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="email"
+              name="email"
+              formControlName="email"
+              placeholder="user@mail.com"
+              value=""
+            />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="email"
+              name="confirmEmail"
+              formControlName="confirmEmail"
+              placeholder="user@mail.com"
+              value=""
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              signupForm.controls['email'].hasError('required') &&
+              signupForm.controls['email'].touched
+            "
+            class="form-error-msg"
+          >
+            Email is required
+          </small>
+
+          <small
+            *ngIf="
+              signupForm.controls['email'].hasError('email') &&
+              signupForm.controls['email'].touched
+            "
+            class="form-error-msg"
+          >
+            Invalid email address
+          </small>
+
+          <mat-form-field class="full-width">
+            <input
+              type="password"
+              name="password"
+              matInput
+              formControlName="password"
+              placeholder="Password"
+              value=""
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              signupForm.controls['password'].hasError('required') &&
+              signupForm.controls['password'].touched
+            "
+            class="form-error-msg"
+          >
+            Password is required
+          </small>
+
+          <mat-form-field class="full-width">
+            <input
+              type="password"
+              name="confirmPassword"
+              matInput
+              formControlName="confirmPassword"
+              placeholder="Confirm Password"
+              value=""
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              signupForm.controls['confirmPassword'].hasError('required') &&
+              signupForm.controls['confirmPassword'].touched
+            "
+            class="form-error-msg"
+            >Confirm password is required.</small
+          >
+          <small
+            *ngIf="signupForm.controls['confirmPassword'].hasError('hasMatch')"
+            class="form-error-msg"
+            >Passwords do not math.</small
+          >
+          <button
+            mat-raised-button
+            class="mat-primary full-width mb-1"
+            [disabled]="signupForm.invalid"
+          >
+            Sign up
+          </button>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a [routerLink]="'/signin'" class="mat-primary text-center full-width"
+          >Sign in to existing account</a
+        >
+      </div>
+    </form></mat-card-content
+  ></mat-card
+>

@@ -1,0 +1,145 @@
+<mdb-navbar
+  SideClass="navbar navbar-expand-lg pink
+  lighten-5"
+  [containerInside]="false"
+>
+  <mdb-navbar-brand
+    ><a routerLink="/" class="navbar-brand" style="color: #000000"
+      ><strong>Shopify</strong></a
+    ></mdb-navbar-brand
+  >
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a
+          routerLink="/catalog/categories/Dresses"
+          class="nav-link waves-light"
+          mdbWavesEffect
+          style="color: #000000"
+          >DRESSES</a
+        >
+      </li>
+      <li class="nav-item dropdown" dropdown>
+        <a
+          dropdownToggle
+          mdbWavesEffect
+          type="button"
+          class="nav-link dropdown-toggle waves-light"
+          mdbWavesEffect
+        >
+          CLOTHING<span class="caret"></span
+        ></a>
+        <div
+          *dropdownMenu
+          class="dropdown-menu dropdown dropdown-primary"
+          role="menu"
+        >
+          <a
+            routerLink="/catalog/categories/Tops"
+            class="dropdown-item waves-light"
+            mdbWavesEffect
+            >TOPS</a
+          >
+          <a
+            routerLink="/catalog/categories/Skirts & Shorts"
+            class="dropdown-item waves-light"
+            mdbWavesEffect
+            >SKIRTS & SHORTS</a
+          >
+          <a
+            routerLink="/catalog/categories/Two Piece Sets"
+            class="dropdown-item waves-light"
+            mdbWavesEffect
+            >TWO PIECE SETS</a
+          >
+          <div class="divider dropdown-divider"></div>
+          <a
+            routerLink="/catalog/categories/Trousers"
+            class="dropdown-item waves-light"
+            mdbWavesEffect
+            >TROUSERS</a
+          >
+          <a
+            routerLink="/catalog/categories/Coats & Jackets"
+            class="dropdown-item waves-light"
+            mdbWavesEffect
+            >COATS & JACKETS</a
+          >
+        </div>
+      </li>
+
+      <li class="nav-item dropdown" dropdown>
+        <a
+          dropdownToggle
+          mdbWavesEffect
+          type="button"
+          class="nav-link dropdown-toggle waves-light"
+          mdbWavesEffect
+        >
+          SWIM<span class="caret"></span
+        ></a>
+        <div
+          *dropdownMenu
+          class="dropdown-menu dropdown dropdown-primary"
+          role="menu"
+        >
+          <a
+            routerLink="/catalog/categories/Bikinis"
+            class="dropdown-item waves-light"
+            mdbWavesEffect
+            >BIKINIS</a
+          >
+          <a
+            routerLink="/catalog/categories/Swimsuits"
+            class="dropdown-item waves-light"
+            mdbWavesEffect
+            >SWIMSUITS</a
+          >
+        </div>
+      </li>
+      <li class="nav-item">
+        <a
+          routerLink="/catalog/categories/Accessories"
+          class="nav-link waves-light"
+          mdbWavesEffect
+          style="color: #000000"
+          >ACCESSORIES</a
+        >
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <ng-container *ngIf="profile$ | async as profile; else login">
+        <div class="buttons">
+          <span class="mr-3 is-size-5">
+            Welcome,
+            <a routerLink="/profile">{{ profile.username }}</a
+            >!
+          </span>
+
+          <a class="button is-primary mr-3" routerLink="/cart">
+            <i class="material-icons">shopping_cart</i>
+            <span
+              class="badge badge-light badge-pill"
+              *ngIf="cart.products.length as count"
+              >{{ count }}</span
+            >
+          </a>
+          <a class="button is-danger" routerLink="/home" (click)="logout()">
+            <i class="material-icons">exit_to_app</i>
+          </a>
+        </div>
+      </ng-container>
+      <ng-template #login>
+        <div class="buttons">
+          <a class="button is-black" routerLink="/signup">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light" routerLink="/login">
+            Log in
+          </a>
+        </div>
+      </ng-template>
+    </ul>
+  </links>
+</mdb-navbar>

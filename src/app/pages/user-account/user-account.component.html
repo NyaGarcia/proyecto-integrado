@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <ul class="list-group">
+        <li class="list-group-item hoverable">
+          <a [routerLink]="['/users']">Profile</a>
+        </li>
+        <li class="list-group-item hoverable">
+          <a
+            [routerLink]="[
+              '/users',
+              { outlets: { profileOutlet: ['favourite-products'] } }
+            ]"
+            >Wishlist</a
+          >
+        </li>
+        <li class="list-group-item hoverable">
+          <a
+            [routerLink]="[
+              '/users',
+              { outlets: { profileOutlet: ['cart-items'] } }
+            ]"
+            >Cart</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-8">
+      <router-outlet name="profileOutlet"></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.card-deck {
+  justify-content: space-evenly;
+}
+
+.card-deck > div::ng-deep image-card > mdb-card > div {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}

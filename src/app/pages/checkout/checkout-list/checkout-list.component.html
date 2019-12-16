@@ -1,0 +1,34 @@
+<div class="container" style="margin-top: 2rem;">
+  <ul class="list-group mb-3">
+    <li
+      class="list-group-item d-flex justify-content-between lh-condensed"
+      *ngFor="let product of checkoutProducts"
+    >
+      <div>
+        <img
+          [src]="product.image"
+          [alt]="product.title"
+          width="150"
+          height="100"
+        />
+      </div>
+      <div style="padding: 10px">
+        <h6 class=" my-0 ">{{ product.title }}</h6>
+      </div>
+      <span class="text-muted ">{{ product.price }}€</span>
+    </li>
+    <hr />
+    <li class="list-group-item d-flex justify-content-between ">
+      <span>Total (INR)</span>
+      <strong>{{ total }}€</strong>
+    </li>
+  </ul>
+  <button
+    class="btn btn-primary btn-lg btn-block"
+    routerLink="shipping"
+    routerLinkActive="active"
+    style="margin-bottom: 1rem;"
+  >
+    Continue to checkout
+  </button>
+</div>

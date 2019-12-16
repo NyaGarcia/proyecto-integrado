@@ -1,0 +1,106 @@
+<div>
+  <a
+    [routerLink]="[{ outlets: { checkOutlet: ['result'] } }]"
+    routerLinkActive="active"
+    data-toggle="tab"
+    title="Payment"
+  >
+  </a>
+</div>
+
+<div class="container" style="margin-top: 2rem;">
+  <div class="row" #invoice>
+    <div class="container" style="margin: auto">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <address>
+            <strong>Shopify</strong>
+            <br />
+            Málaga, Spain 29130
+            <br />
+            <abbr title="Phone">P:</abbr> (+34) 952411212
+          </address>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+          <p>
+            <em>Date: {{ date }}</em>
+          </p>
+          <p>
+            <em>Receipt #: 34522677W</em>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="text-center">
+          <h1>Invoice</h1>
+        </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <td></td>
+              <th class="text-center">Price</th>
+              <th class="text-center">Discount</th>
+              <th class="text-center">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td class="col-md-9">
+                <h6>
+                  <em>{{ product.title }}</em>
+                </h6>
+              </td>
+              <td></td>
+              <td class="col-md-1 text-center">{{ product.price }}</td>
+              <td class="col-md-1 text-center">{{ product.price }}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="text-right">
+                <p>
+                  <strong>Subtotal: </strong>
+                </p>
+                <p>
+                  <strong>Tax: </strong>
+                </p>
+              </td>
+              <td class="text-center">
+                <p>
+                  <strong>{{ totalPrice }}</strong>
+                </p>
+                <p>
+                  <strong>{{ tax * 100 }}%</strong>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="text-right">
+                <p><strong>Total: </strong></p>
+              </td>
+              <td class="text-center text-danger">
+                <h4>
+                  <strong>{{ totalPrice + totalPrice * tax }}</strong>
+                </h4>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary btn-block" (click)="downloadInvoice()">
+    <i class="fa fa-download"></i> Invoice
+  </button>
+  <button
+    type="button"
+    class="btn btn-success btn-lg btn-block"
+    (click)="pay()"
+    style="margin-bottom: 1rem;"
+  >
+    Pay Now <span class="glyphicon glyphicon-chevron-right"></span>
+  </button>
+</div>

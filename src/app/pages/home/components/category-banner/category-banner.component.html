@@ -1,0 +1,8 @@
+<div class="card-deck">
+  <div *ngFor="let category of randomCategories">
+    <image-card
+      (clickEvent)="navigateToCategory($event)"
+      [category]="category"
+    ></image-card>
+  </div>
+</div>

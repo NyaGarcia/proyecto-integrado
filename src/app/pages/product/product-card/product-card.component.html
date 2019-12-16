@@ -1,0 +1,31 @@
+<!-- <mdb-card (click)="emit()" class="custom-class">
+  <mdb-card-img
+    src="{{ product.image }}"
+    alt="{{ product.title }}"
+  ></mdb-card-img>
+  <mdb-card-body>
+    <mdb-card-title>
+      <h4>{{ product.title }}</h4>
+    </mdb-card-title>
+    <mdb-card-text>
+      <div>{{ product.description }}</div>
+      <div>{{ product.price }}</div>
+      <i class="far fa-heart"></i>
+    </mdb-card-text>
+  </mdb-card-body>
+</mdb-card> -->
+
+<mdb-card
+  class="card-image mb-3 image"
+  [style.background-image]="'url(' + product.image + ')'"
+>
+  <div class="text-white text-center d-flex align-items-center py-5 px-4">
+    <div class="title-container">
+      <h3 class="card-title pink-text" (click)="emit()">
+        <strong>{{ product.title }}</strong>
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }}€</p>
+      </h3>
+    </div>
+  </div>
+</mdb-card>

@@ -1,0 +1,26 @@
+.product-detail .product-head {
+  padding: 10px;
+  font-weight: 500;
+}
+
+.product-detail .table th {
+  width: 152px;
+}
+
+.product-ship {
+  height: 15rem;
+}
+
+.highlight {
+  color: crimson;
+}
+
+btn > .btn {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.container {
+  margin-top: 2rem;
+}
